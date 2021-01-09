@@ -16,23 +16,8 @@
 # limitations under the License.
 #
 
-# Dynamic
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+LOCAL_PATH := $(call my-dir)
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
-
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
-
-PRODUCT_DEVICE := RMX2185
-PRODUCT_NAME := omni_RMX2185
-PRODUCT_BRAND := realme
-PRODUCT_MODEL := RMX2185
-PRODUCT_MANUFACTURER := realme
-
-# HACK: Set vendor patch level and enable Treble
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31 \
-    ro.treble.enabled=true
+ifeq ($(TARGET_DEVICE),RMX2185)
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
+endif
