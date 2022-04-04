@@ -17,6 +17,6 @@
 #
 
 PRODUCT_MAKEFILES := \
-     $(LOCAL_DIR)/omni_moon.mk
+     $(LOCAL_DIR)/twrp_moon.mk
 
-COMMON_LUNCH_CHOICES := omni_moon-eng
+COMMON_LUNCH_CHOICES := twrp_moon-eng
